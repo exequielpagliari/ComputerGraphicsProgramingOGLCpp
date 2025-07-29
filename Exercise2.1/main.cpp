@@ -7,8 +7,8 @@ using namespace std;
 #define numVAOs 1
 GLuint renderingProgram;
 GLuint vao[numVAOs];
-float sizePoint = 0.0f; // size of point
-float inc = 0.5f; // offset for size the triangle
+float sizePoint = 0.0f; // Tamaño de Punto
+float inc = 0.5f; // Offset de incremento
 
 
 
@@ -24,7 +24,7 @@ GLuint createShaderProgram() {
 		"#version 430 \n"
 		"out vec4 color; \n"
 		"void main(void) \n"
-		"{ if (gl_FragCoord.x < 200) color = vec4(1.0, 0.0, 0.0, 1.0); else color = vec4(0.0, 0.0, 1.0, 1.0);}";
+		"{ color = vec4(0.0, 0.0, 1.0, 1.0); }";
 	GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(vShader, 1, &vshaderSource, NULL);
@@ -66,7 +66,7 @@ int main(void) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	//Se crea la ventana
-	GLFWwindow* window = glfwCreateWindow(600, 600, "Chapter2 - program2", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(600, 600, "Chapter2 - exercise1", NULL, NULL);
 	//Se da contexto de glfw a la ventana.
 	glfwMakeContextCurrent(window);
 	//Se inicia Glew
