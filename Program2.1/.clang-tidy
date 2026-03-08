@@ -1,0 +1,23 @@
+Checks: >
+  bugprone-*,
+  performance-*,
+  readability-*,
+  modernize-*,
+  clang-analyzer-*,
+  clang-analyzer-unix.Malloc,
+  clang-analyzer-cplusplus.NewDelete,
+  cppcoreguidelines-no-malloc,
+  cppcoreguidelines-owning-memory
+
+# Convierte los avisos en errores si quieres forzar la limpieza del código
+WarningsAsErrors: ''
+
+# Filtra para que no analice las librerías externas (GLEW, GLFW, etc.)
+HeaderFilterRegex: 'src/.*'
+
+# Opciones detalladas para las reglas activas
+CheckOptions:
+  - key: modernize-use-nullptr.NullMacros
+    value: 'NULL,nullptr'
+  - key: cppcoreguidelines-owning-memory.LegacyResourceConsumers
+    value: 'free,delete'
