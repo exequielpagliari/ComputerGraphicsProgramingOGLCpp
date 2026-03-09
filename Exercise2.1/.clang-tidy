@@ -9,6 +9,8 @@ Checks: >
   cppcoreguidelines-no-malloc,
   cppcoreguidelines-owning-memory
 
+  -modernize-use-trailing-return-type,
+
 # Convierte los avisos en errores si quieres forzar la limpieza del código
 WarningsAsErrors: ''
 

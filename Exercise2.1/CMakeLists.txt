@@ -13,6 +13,7 @@ add_definitions(-DGLEW_STATIC)
 
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Configurar clang-tidy ANTES de crear targets
@@ -82,3 +83,34 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     ${CMAKE_SOURCE_DIR}
 )
      
+# Find the clang-format executable
+find_program(CLANG_FORMAT_EXE clang-format)
+get_target_property(target_sources ${PROJECT_NAME} SOURCES)
+
+if(CLANG_FORMAT_EXE) 
+  add_custom_target(format 
+    COMMENT "Formatting files with clang-format..." 
+    COMMAND ${CLANG_FORMAT_EXE} -i ${target_sources} 
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+  ) 
+  message(STATUS "Added 'format' target") 
+else() 
+  message(WARNING
+    "clang-format not found - format target unavailable") 
+endif()
+
+# Find the clang-format executable
+find_program(CLANG_FORMAT_EXE clang-format)
+get_target_property(target_sources ${PROJECT_NAME} SOURCES)
+
+if(CLANG_FORMAT_EXE) 
+  add_custom_target(formattest
+    COMMENT "Test formatting files with clang-format..." 
+    COMMAND ${CLANG_FORMAT_EXE} -style=file -Werror --dry-run ${target_sources} 
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+  ) 
+  message(STATUS "Added 'format' target") 
+else() 
+  message(WARNING
+    "clang-format not found - format target unavailable") 
+endif()

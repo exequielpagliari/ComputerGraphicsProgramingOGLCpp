@@ -1,0 +1,20 @@
+---
+BasedOnStyle:                                    Chromium
+
+ConstructorInitializerIndentWidth:               8
+ContinuationIndentWidth:                         8
+IndentWidth:                                     4
+AccessModifierOffset:                            -2
+ColumnLimit:                                     99
+
+BinPackArguments:                                true
+BinPackParameters:                               true
+AlignAfterOpenBracket:                           AlwaysBreak
+AlignConsecutiveAssignments:                     true
+AlignConsecutiveDeclarations:                    true
+AlignOperands:                                   true
+SortIncludes:                                    false
+AllowShortCaseLabelsOnASingleLine:               true
+AllowShortFunctionsOnASingleLine:                true
+
+

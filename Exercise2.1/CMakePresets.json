@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "base",
+      "binaryDir": "${sourceDir}/build"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "format",
+      "configurePreset": "base",
+      "targets": [ "format" ]
+    },
+    {
+      "name": "formattest",
+      "configurePreset": "base",
+      "targets": [ "formattest" ]
+    }
+  ]
+}
